@@ -1,4 +1,3 @@
-# app.py module
 import logging
 from db import Database
 from button import menu_keyboard, addresses_keyboard
@@ -7,10 +6,8 @@ from aiogram import Bot, Dispatcher, executor, types
 
 API_TOKEN ='7202294382:AAEqrzzFPIQ3QH8O2ssuZOleRHDamU6U6JE'
 
-# Configure logging
 logging.basicConfig(level=logging.INFO)
 
-# Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
@@ -38,9 +35,6 @@ async def menu(message: types.Message):
 
 @dp.message_handler()
 async def echo(message: types.Message):
-    # old style:
-    # await bot.send_message(message.chat.id, message.text)
-
     await message.answer(message.text)
 
 if __name__ == '__main__':
